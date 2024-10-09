@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+
 public class Sale {
     private Product[] arrayProducts;
     private double totalPrice;
@@ -7,17 +9,14 @@ public class Sale {
         this.totalPrice = sumPrice();
     }
 
-    public double calcularTotal() throws VendaBuidaException {
-        if (arrayProducts.length > 0) {
-            System.out.println(totalPrice);
-            return totalPrice;
-        } else {
-            throw new VendaBuidaException("Per fer una venda primer has d’afegir productes");
-        }
+    public double calcularTotal() throws EmptySaleException {
+        if (arrayProducts.length > 0) return totalPrice;
+        else  throw new EmptySaleException("Per fer una venda primer has d’afegir productes");
     }
 
-    public Product productAt(int index) {
-        return arrayProducts[index]; // Not checking lenght could lead to IndexOutOfBoundsException
+    public Product productAt(int index) throws ArrayIndexOutOfBoundsException {
+        if (arrayProducts.length > index) return arrayProducts[index];
+        else throw new ArrayIndexOutOfBoundsException();
     }
 
     private double sumPrice() {
