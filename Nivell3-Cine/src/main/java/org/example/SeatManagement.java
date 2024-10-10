@@ -31,12 +31,12 @@ public class SeatManagement {
         if (checkSeat(row, seat) == -1) {
             throw new FreeSeatException("Seat is not occupied yet.");
         } else {
-            seats.removeIf(x -> x.equals(row, seat));
+            seats.removeIf(x -> x.equals(new Seat(row, seat, "")));
         }
     }
 
     public int checkSeat(int row, int seat) {
-        Optional<Seat> foundSeat = seats.stream().filter(x -> x.equals(row, seat)).findFirst();
+        Optional<Seat> foundSeat = seats.stream().filter(x -> x.equals(new Seat(row, seat, ""))).findFirst();
         return foundSeat.map(value -> seats.indexOf(value)).orElse(-1);
     }
 
@@ -46,11 +46,5 @@ public class SeatManagement {
 
     public List<String> getALlReservedSeats() {
         return seats.stream().map(Seat::toString).toList();
-    }
-
-    public List<String> getALlReservedSeatsperPerson(String person) {
-        return seats.stream()
-                .filter(x -> x.getPerson().equals(person))
-                .map(Seat::toString).toList();
     }
 }

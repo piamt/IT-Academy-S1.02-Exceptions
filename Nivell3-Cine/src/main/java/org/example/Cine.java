@@ -29,33 +29,37 @@ public class Cine {
     }
 
     public void initiate() {
+        boolean close = false;
         int selectedMenuOption = -1;
-        try {
-            selectedMenuOption = cineManagement.menu();
-        } catch (IncorrectMenuOptionException e) {
-            System.out.println(e.getMessage());
-        }
 
-        switch (selectedMenuOption) {
-            case 1:
-                cineManagement.showAllReservedSeats();
-                break;
-            case 2:
-                cineManagement.showSeatsForPerson();
-                break;
-            case 3:
-                cineManagement.reserveSeat();
-                break;
-            case 4:
-                cineManagement.cancelSeat();
-                break;
-            case 5:
-                cineManagement.cancelPerson();
-                break;
-            case 0:
-                return;
-            default: break;
-        }
-        initiate();
+        do {
+            try {
+                selectedMenuOption = cineManagement.menu();
+            } catch (IncorrectMenuOptionException e) {
+                System.out.println(e.getMessage());
+            }
+
+            switch (selectedMenuOption) {
+                case 1:
+                    cineManagement.showAllReservedSeats();
+                    break;
+                case 2:
+                    cineManagement.showSeatsForPerson();
+                    break;
+                case 3:
+                    cineManagement.reserveSeat();
+                    break;
+                case 4:
+                    cineManagement.cancelSeat();
+                    break;
+                case 5:
+                    cineManagement.cancelPerson();
+                    break;
+                case 0:
+                    close = true;
+                    break;
+                default: break;
+            }
+        } while (!close);
     }
 }

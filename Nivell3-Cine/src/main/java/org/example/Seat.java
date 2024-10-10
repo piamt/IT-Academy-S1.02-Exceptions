@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Seat {
 
     private int row;
@@ -24,8 +26,17 @@ public class Seat {
         return person;
     }
 
-    public boolean equals(int row, int seat) {
-        return (this.row == row && this.number == seat);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Seat seat = (Seat) o;
+        return getRow() == seat.getRow() && getNumber() == seat.getNumber();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getRow(), getNumber());
     }
 
     public boolean fromPerson(String person) {
