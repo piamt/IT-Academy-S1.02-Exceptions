@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        Product arrayProducts[] = {};
+        Product[] arrayProducts = {};
         Sale sale = new Sale(arrayProducts);
         try {
             sale.calcularTotal();
