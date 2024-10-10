@@ -1,8 +1,5 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.concurrent.Callable;
-
-import static java.lang.Thread.sleep;
 
 public class Entry {
 
