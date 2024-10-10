@@ -22,7 +22,7 @@ public class Sale {
     private double sumPrice() {
         double sum = 0;
         for (Product product: arrayProducts) {
-            sum =+ product.getPrice();
+            sum += product.getPrice();
         }
         return sum;
     }
