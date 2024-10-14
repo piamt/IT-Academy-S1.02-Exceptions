@@ -20,11 +20,8 @@ public class SeatManagement {
     }
 
     public void addSeat(Seat seat) throws OccupiedSeatException {
-        if (checkSeat(seat.getRow(), seat.getNumber()) > -1) {
-            throw new OccupiedSeatException("Seat occupied. Try with another seat.");
-        } else {
-            seats.add(seat);
-        }
+        if (checkSeat(seat.getRow(), seat.getNumber()) > -1) throw new OccupiedSeatException("Seat occupied. Try with another seat.");
+        seats.add(seat);
     }
 
     public void removeSeat(int row, int seat) throws FreeSeatException {

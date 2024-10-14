@@ -10,13 +10,13 @@ public class Sale {
     }
 
     public double calcularTotal() throws EmptySaleException {
-        if (arrayProducts.length > 0) return totalPrice;
-        else  throw new EmptySaleException("Per fer una venda primer has d’afegir productes");
+        if (arrayProducts.length == 0) throw new EmptySaleException("Per fer una venda primer has d’afegir productes");
+        return totalPrice;
     }
 
     public Product productAt(int index) throws ArrayIndexOutOfBoundsException {
-        if (arrayProducts.length > index) return arrayProducts[index];
-        else throw new ArrayIndexOutOfBoundsException();
+        if (arrayProducts.length <= index || index < 0) throw new ArrayIndexOutOfBoundsException();
+        return arrayProducts[index];
     }
 
     private double sumPrice() {
