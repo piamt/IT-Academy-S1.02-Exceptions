@@ -1,22 +1,23 @@
 import java.lang.reflect.Array;
+import java.util.List;
 
 public class Sale {
-    private Product[] arrayProducts;
+    private List<Product> arrayProducts;
     private double totalPrice;
 
-    public Sale(Product[] arrayProducts) {
-        this.arrayProducts = arrayProducts;
+    public Sale(List<Product> products) {
+        this.arrayProducts = products;
         this.totalPrice = sumPrice();
     }
 
     public double calcularTotal() throws EmptySaleException {
-        if (arrayProducts.length == 0) throw new EmptySaleException("Per fer una venda primer has d’afegir productes");
+        if (arrayProducts.size() == 0) throw new EmptySaleException("Per fer una venda primer has d’afegir productes");
         return totalPrice;
     }
 
     public Product productAt(int index) throws ArrayIndexOutOfBoundsException {
-        if (arrayProducts.length <= index || index < 0) throw new ArrayIndexOutOfBoundsException();
-        return arrayProducts[index];
+        if (arrayProducts.size() <= index || index < 0) throw new ArrayIndexOutOfBoundsException();
+        return arrayProducts.get(index);
     }
 
     private double sumPrice() {

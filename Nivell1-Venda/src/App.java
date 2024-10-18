@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        Product[] arrayProducts = {};
-        Sale sale = new Sale(arrayProducts);
+        List<Product> products = new ArrayList<>();
+        Sale sale = new Sale(products);
         try {
             sale.calcularTotal();
         } catch(EmptySaleException exception) {

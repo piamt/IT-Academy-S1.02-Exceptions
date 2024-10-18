@@ -5,10 +5,9 @@ import java.util.Scanner;
 
 public class Entry {
 
-    static Scanner scanner = new Scanner(System.in);
-
     public static int readInt(String message) {
         System.out.println(message);
+        Scanner scanner = new Scanner(System.in);
         boolean isValidInput = false;
         int validInput = 0;
         while (!isValidInput) {
@@ -26,6 +25,7 @@ public class Entry {
 
     public static String readString(String message) {
         System.out.println(message);
+        Scanner scanner = new Scanner(System.in);
         boolean isValidInput = false;
         String validInput = null;
         while (!isValidInput) {
